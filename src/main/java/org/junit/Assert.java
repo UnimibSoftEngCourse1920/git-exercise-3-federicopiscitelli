@@ -1032,6 +1032,7 @@ public class Assert {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
     
+
     public static void assertGreaterThan(int o1, int o2, java.util.Comparator c) {
         assertTrue(c.compare(o1,o2)>0);
     }
@@ -1046,5 +1047,9 @@ public class Assert {
     }
     public static void assertGreaterThan(long o1, long o2, java.util.Comparator c) {
         assertTrue(c.compare(o1,o2)>0);
+    }
+    public static <T> void assertGreaterThan(T o1,T o2, java.util.Comparator comparator) {
+        assertTrue(comparator.compare(o1, o2) > 0);
+
     }
 }

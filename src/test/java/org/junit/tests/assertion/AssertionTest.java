@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertGreaterThan;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertGreaterThan;
@@ -1038,5 +1039,21 @@ public class AssertionTest {
         ///////////////////////////////
         
     
+         Comparator c = new Comparator() {
+             public int compare(Object o1, Object o2) {
+                 Integer n1 = (Integer) o1;
+                 Integer n2 = (Integer) o2;
+                 
+                 if(n1 == n2) {
+                     return 0;
+                 } else if(n1 > n2) {
+                     return 1;
+                 } else {
+                     return 0;
+                 }
+             }    
+         };
+         assertGreaterThan(2,1,c);
+
     }
 }
